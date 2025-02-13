@@ -1,0 +1,49 @@
+
+  <div class="clinic-container">
+    <h2>All Clinics</h2>
+    <button class="add-btn" routerLink="/add-clinic">+ Add Clinic</button>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Active</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let clinic of clinics">
+            <td>{{ clinic.id }}</td>
+            <td>{{ clinic.name }}</td>
+            <td>{{ clinic.phoneNumber }}</td>
+            <td>{{ clinic.email }}</td>
+            <td>{{ clinic.startTime | date: 'short' }}</td>
+            <td>{{ clinic.endTime | date: 'short' }}</td>
+            <td>
+              <span class="status" [class.active]="clinic.isServiceActive" [class.inactive]="!clinic.isServiceActive">
+                {{ clinic.isServiceActive ? 'Active' : 'Inactive' }}
+              </span>
+            </td>
+            <td>
+              <div class="dropdown">
+                <button class="ellipsis-btn">&#8942;</button>
+                <div class="dropdown-content">
+                  <a (click)="deleteClinic(clinic.id)">🗑 Delete</a>
+                  <a [routerLink]="['/clinics/edit', clinic.id]">✏ Edit</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+

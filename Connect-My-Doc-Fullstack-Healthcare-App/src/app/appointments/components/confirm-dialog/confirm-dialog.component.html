@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Confirm Action</h2>
+<div mat-dialog-content>
+  <p>Are you sure you want to cancel the appointment?</p>
+  <p><strong>Appointment ID:</strong> {{ data.appointmentId }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">No</button>
+  <button mat-raised-button color="warn" (click)="onConfirm()">Yes</button>
+</div>

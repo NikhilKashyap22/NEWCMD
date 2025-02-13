@@ -1,0 +1,55 @@
+<div class="page-wrapper">
+  <div class="content">
+    <div class="row">
+      <div class="col-sm-4 col-3">
+        <h4 class="page-title">List of Doctors</h4>
+      </div>
+      <div class="col-sm-8 col-9 text-right m-b-20">
+        <button class="btn btn-primary btn-rounded float-right" [routerLink]="['/add-doctor']">
+          <i class="fa fa-plus"></i> Add Doctor
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-responsive" style="height: 100vh;">
+          <table class="table table-border table-striped custom-table datatable mb-0">
+            <thead>
+              <tr>
+                <th>Doctor ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Experience</th>
+                <th>Status</th>
+                <th>Specialization</th>
+                <th class="text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doctor of doctors">
+                <td><a (click)="viewDoctor(doctor.doctorId)" style="cursor: pointer;">{{ doctor.doctorId }}</a></td>
+                <td>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</td>
+                <td>{{ doctor.phoneNum }}</td>
+                <td>{{ doctor.email }}</td>
+                <td *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears }} years</td>
+                <td>{{ doctor.status }}</td>
+                <td>{{ doctor.specialization.specializationType }}</td>
+                <td class="text-right">
+                  <div class="dropdown">
+                    <button class="ellipsis-btn">&#8942;</button>
+                    <div class="dropdown-content">
+                      <a (click)="deleteDoctor(doctor.doctorId)">Delete</a>
+                      <a (click)="updateAddress(doctor.doctorId)">Edit</a>
+                      <a (click)="viewDoctor(doctor.doctorId)">View</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

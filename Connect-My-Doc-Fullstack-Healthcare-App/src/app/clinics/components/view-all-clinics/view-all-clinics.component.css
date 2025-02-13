@@ -1,0 +1,142 @@
+/* Main container */
+.clinic-container {
+    margin-left: 220px;
+    margin-top: 55px;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  /* Add button */
+  .add-btn {
+    background: #09a4ec;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 59px;
+    margin-top: 5px;
+    margin-bottom: 200;
+    
+    float: right;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .add-btn:hover {
+    background: #215d88;
+  }
+  
+  /* Table wrapper for responsiveness */
+  .table-wrapper {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    
+  }
+  
+  /* Table Head */
+  th {
+    background: #009ce7;
+    color: white;
+    padding: 12px;
+    text-transform: uppercase;
+  }
+  
+  /* Table Body */
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Hover effect */
+  tbody tr:hover {
+    background: #f1f1f1;
+  }
+  
+  /* Status Pill */
+  .status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+  }
+  
+  .status.active {
+    background: #28a745;
+    color: white;
+  }
+  
+  .status.inactive {
+    background: hsl(2, 91%, 63%);
+    color: white;
+  }
+  
+  /* Action Button */
+  .ellipsis-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .ellipsis-btn:hover {
+    color: #007bff;
+  }
+  
+  /* Dropdown Styling */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%; /* Default position: below the button */
+    background: white;
+    min-width: 100px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    color: #dc3545;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .dropdown-content a:hover {
+    background: #f8d7da;
+  }
+  
+  /* Show dropdown on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  table tbody tr:last-child .dropdown-content {
+    bottom: 100%;
+    top: auto;
+  }
+  
+  /* Improve cursor experience */
+  .dropdown-content a:hover {
+    cursor: pointer;
+  }
+   

@@ -1,0 +1,10 @@
+.active {
+  background-color: #eaeaea;
+  color: #009efb;
+}
+
+.hidden {
+  width: 0%;
+  content-visibility: hidden;
+  transition: 0.5s ease-in-out;
+}

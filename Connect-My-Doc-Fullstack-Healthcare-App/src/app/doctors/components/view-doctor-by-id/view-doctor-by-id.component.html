@@ -1,0 +1,98 @@
+<div class="page-wrapper" *ngIf="doctor">
+  <div class="content">
+    <div class="row">
+      <div class="col-sm-7 col-6">
+        <h4 class="page-title">My Profile</h4>
+      </div>
+    </div>
+
+    <div class="card-box profile-header">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="profile-view">
+            <div class="profile-img-wrap">
+              <div class="profile-img">
+                <a href="#"><img class="avatar" [src]="'assets/img/user.jpg'" alt="Doctor Image"></a>
+              </div>
+            </div>
+            <div class="profile-basic">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="profile-info-left">
+                    <h3 class="user-name m-t-0 mb-0">{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</h3>
+                    <small class="text-muted">{{ doctor.specialization.specializationType }}</small>
+                    <div class="staff-id">Doctor ID: {{ doctor.doctorId }}</div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <ul class="personal-info">
+                    <li><span class="title">Phone:</span> <span class="text">{{ doctor.phoneNum }}</span></li>
+                    <li><span class="title">Email:</span> <span class="text">{{ doctor.email }}</span></li>
+                    <li><span class="title">Birthday:</span> <span class="text">{{ doctor.dateOfBirth }}</span></li>
+                    <li><span class="title">Address:</span>
+                      <span class="text">
+                        {{ doctor.address.houseName }}, {{ doctor.address.city }},
+                        {{ doctor.address.state }}, {{ doctor.address.country }},
+                        {{ doctor.address.zipCode }}
+                      </span>
+                    </li>
+                    <li><span class="title">Gender:</span> <span class="text">{{ doctor.gender }}</span></li>
+                    <li><span class="title">Status:</span> <span class="text">{{ doctor.status }}</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card-box">
+                <h3 class="card-title">Education Information</h3>
+                <div class="experience-box">
+                  <ul class="experience-list">
+                    <li *ngFor="let qual of doctor.qualifications">
+                      <div class="experience-user">
+                        <div class="before-circle"></div>
+                      </div>
+                      <div class="experience-content">
+                        <div class="timeline-content">
+                          <a href="#/" class="name">{{ qual.university }}</a>
+                          <div>{{ qual.degree }}</div>
+                          <span class="time">{{ qual.startYear }} - {{ qual.endYear }}</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="card-box mb-0">
+                <h3 class="card-title">Experience</h3>
+                <div class="experience-box">
+                  <ul class="experience-list">
+                    <li *ngFor="let exp of doctor.experiences">
+                      <div class="experience-user">
+                        <div class="before-circle"></div>
+                      </div>
+                      <div class="experience-content">
+                        <div class="timeline-content">
+                          <a href="#/" class="name">{{ exp.clinicName }}</a>
+                          <span class="time">{{ exp.role }} ({{ exp.experienceInYears }} years)</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" [routerLink]="['/doctors']">Go back</button>
+  </div>

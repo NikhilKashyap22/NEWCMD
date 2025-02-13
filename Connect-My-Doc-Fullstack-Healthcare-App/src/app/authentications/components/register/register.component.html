@@ -1,0 +1,18 @@
+<div class="register-container">
+  <h2>Register</h2>
+  <input type="text" placeholder="Username" [(ngModel)]="user.username">
+  <input type="password" placeholder="Password" [(ngModel)]="user.password">
+  <span>I am a: </span>
+  <div class="role">
+    <div class="left">
+      <input type="radio" placeholder="Role" [(ngModel)]="user.role" value="ADMIN" class="role-input">Admin
+    </div>
+    <div class="right">
+      <input type="radio" placeholder="Role" [(ngModel)]="user.role" value="USER">User
+    </div>
+    </div>
+  <button (click)="register()">Register</button>
+  <p>Already have account?</p>
+  <button [routerLink]="['/login']">Login </button>
+  <p *ngIf="message">{{ message }}</p>
+</div>

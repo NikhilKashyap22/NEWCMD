@@ -1,0 +1,52 @@
+<a [routerLink]="['/home']" class="btn">Back to Home</a>
+
+<div class="container">
+  <h2 class="title">Appointment Details</h2>
+
+  <div *ngIf="appointment; else errorBlock" class="card">
+    <div class="card-section">
+      <h3>General Info</h3>
+      <p><strong>Appointment ID:</strong> {{ appointment.appointmentId }}</p>
+      <p><strong>Status:</strong> {{ appointment.appointmentStatus }}</p>
+      <p>
+        <strong>Date:</strong>
+        {{ appointment.appointmentDate | date : "dd-MM-yyyy" }}
+      </p>
+      <p><strong>Time:</strong> {{ appointment.appointmentTime }}</p>
+      <p><strong>Type:</strong> {{ appointment.appointmentType }}</p>
+      <p><strong>Purpose:</strong> {{ appointment.purposeOfVisit }}</p>
+    </div>
+
+    <div class="card-section">
+      <h3>Doctor Details</h3>
+      <p><strong>ID:</strong> {{ appointment.doctor.doctorId }}</p>
+      <p><strong>Name:</strong> {{ appointment.doctor.doctorName }}</p>
+      <p><strong>Email:</strong> {{ appointment.doctor.doctorEmail }}</p>
+      <p>
+        <strong>Clinic ID:</strong>
+        {{ appointment.doctor.associatedClinicId }}
+      </p>
+      <p>
+        <strong>Clinic Name:</strong>
+        {{ appointment.doctor.associatedClinicName }}
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h3>Patient Details</h3>
+      <p><strong>ID:</strong> {{ appointment.patient.patientId }}</p>
+      <p><strong>Name:</strong> {{ appointment.patient.patientName }}</p>
+      <p><strong>Email:</strong> {{ appointment.patient.patientEmail }}</p>
+      <p><strong>Contact:</strong> {{ appointment.patient.contactNumber }}</p>
+      <p><strong>Age:</strong> {{ appointment.patient.age }}</p>
+      <p>
+        <strong>Active:</strong>
+        {{ appointment.patient.active ? "Yes" : "No" }}
+      </p>
+    </div>
+  </div>
+
+  <ng-template #errorBlock>
+    <p class="error-message">{{ errorMessage }}</p>
+  </ng-template>
+</div>

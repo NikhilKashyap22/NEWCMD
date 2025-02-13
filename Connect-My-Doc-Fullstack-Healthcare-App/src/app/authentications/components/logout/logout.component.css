@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+mat-dialog-content {
+  font-size: 16px;
+  color: #555;
+  padding: 10px 20px;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-left: 20px;
+}
+
+button {
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+button[mat-button] {
+  color: #555;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+button[mat-button]:hover {
+  background: #ddd;
+}
+
+button[color="warn"] {
+  background: #d32f2f;
+  color: white;
+}
+
+button[color="warn"]:hover {
+  background: #b71c1c;
+}

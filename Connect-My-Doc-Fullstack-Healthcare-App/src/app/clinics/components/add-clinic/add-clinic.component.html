@@ -1,0 +1,43 @@
+<h2>Add New Clinic</h2>
+
+<div class="cl">
+<form  [formGroup]="clinicForm" (ngSubmit)="onSubmit()">
+   <h3>Basic Details</h3> 
+  <label class="lab">Name:</label>
+  <input type="text" formControlName="name" required />
+  
+  <label class="lab">Phone Number:</label>
+  <input type="text" formControlName="phoneNumber" required />
+  
+  <label class="lab">Email:</label>
+  <input class="box"  id="email" type="email" formControlName="email" required />
+  
+  <label class="lab">Start Time:</label>
+  <input class="box"  type="datetime-local" formControlName="startTime" required />
+  
+  <label class="lab">End Time:</label>
+  <input class="box"  type="datetime-local" formControlName="endTime" required />
+  
+  <label class="lab">Service Active:</label>
+  <input class="box"  type="checkbox" formControlName="serviceActive" />
+
+  <h3>Address</h3>
+  <label class="lab">House Name:</label>
+  <input class="box" type="text" formControlName="address.housename" />
+  
+  <label class="lab">City:</label>
+  <input type="text" formControlName="address.city" />
+  
+  <label class="lab">State:</label>
+  <input id="state" type="text" formControlName="address.state" />
+  
+  <label class="lab">Country:</label>
+  <input  type="text" formControlName="address.country" />
+  
+  <label class="lab">Zip Code:</label>
+  <input class="box" type="text" formControlName="address.zipCode" />
+   
+  <br>
+  <button type="submit" [disabled]="clinicForm.invalid">Create Clinic</button>
+</form>
+</div>

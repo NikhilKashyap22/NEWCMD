@@ -1,0 +1,30 @@
+body {
+  font-family: 'poppins', sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 50px;
+}
+.container {
+  max-width: 100%;
+  text-align: center;
+  margin: 200px 0px 0px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  color: #ff9800;
+}
+p {
+  color: #333;
+}
+.icon {
+  margin-bottom: 20px;
+  font-size: 50px;
+  animation: blink 1s infinite alternate;
+}
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0.5; }
+}

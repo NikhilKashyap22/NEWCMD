@@ -1,0 +1,3 @@
+<app-header (toggle)="toggleSidebar()" />
+<app-sidebar *ngIf="!isLoginPage" [isOpen]="sidebarOpen"/>
+<app-main/>

@@ -1,0 +1,93 @@
+<a [routerLink]="['/appointments']" class="btn">Back to Home</a>
+
+<div *ngIf="scheduledAppointment">
+  <h3>Appointment Scheduled Successfully!</h3>
+  <p>
+    <strong>Appointment ID:</strong>
+    {{ scheduledAppointment.appointmentId }}
+  </p>
+  <p>
+    <strong>Doctor:</strong> {{ scheduledAppointment.doctor.doctorName }} ({{
+      scheduledAppointment.doctor.doctorId
+    }})
+  </p>
+  <p>
+    <strong>Patient:</strong>
+    {{ scheduledAppointment.patient.patientName }} ({{
+      scheduledAppointment.patient.patientId
+    }})
+  </p>
+  <p>
+    <strong>Appointment Date:</strong>
+    {{ scheduledAppointment.appointmentDate }}
+  </p>
+  <p>
+    <strong>Appointment Time:</strong>
+    {{ scheduledAppointment.appointmentTime }}
+  </p>
+  <p>
+    <strong>Purpose of Visit:</strong>
+    {{ scheduledAppointment.purposeOfVisit }}
+  </p>
+  <p>
+    <strong>Appointment Type:</strong>
+    {{ scheduledAppointment.appointmentType }}
+  </p>
+  <p><strong>Status:</strong> {{ scheduledAppointment.appointmentStatus }}</p>
+</div>
+
+<!-- Form to take input for scheduling an appointment -->
+<form [formGroup]="appointmentForm" (ngSubmit)="submitAppointment()">
+  <h3>Schedule Appointment</h3>
+
+  <!-- Patient ID Input -->
+  <label>Patient ID (Format: PAT-1234-1234)</label>
+  <input formControlName="patientId" placeholder="PAT-1234-1234" />
+  <div
+    *ngIf="
+      appointmentForm.get('patientId')?.invalid &&
+      appointmentForm.get('patientId')?.touched
+    "
+  >
+    Invalid format! Use PAT-XXXX-XXXX.
+  </div>
+
+  <!-- Doctor ID Input -->
+  <label>Doctor ID (Format: DOC-1234-1234)</label>
+  <input formControlName="doctorId" placeholder="DOC-1234-1234" />
+  <div
+    *ngIf="
+      appointmentForm.get('doctorId')?.invalid &&
+      appointmentForm.get('doctorId')?.touched
+    "
+  >
+    Invalid format! Use DOC-XXXX-XXXX.
+  </div>
+
+  <label>Appointment Date</label>
+  <input formControlName="appointmentDate" type="date" />
+
+  <label>Appointment Time</label>
+  <input formControlName="appointmentTime" type="time" />
+
+  <label>Purpose of Visit</label>
+  <select formControlName="purposeOfVisit">
+    <option *ngFor="let purpose of purposeOfVisitOptions" [value]="purpose">
+      {{ purpose }}
+    </option>
+  </select>
+
+  <!-- <label>Review</label>
+  <input formControlName="doctorReview" placeholder="Any main points said by doctor" /> -->
+
+  <label>Appointment Type</label>
+  <select formControlName="appointmentType">
+    <option *ngFor="let type of appointmentTypeOptions" [value]="type">
+      {{ type }}
+    </option>
+  </select>
+
+  <button type="submit" [disabled]="!appointmentForm.valid">
+    Schedule Appointment
+  </button>
+</form>

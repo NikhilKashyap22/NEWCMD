@@ -1,0 +1,36 @@
+<div>
+  <h2>Get Schedules by Id</h2>
+  <label for="doctorId">Enter Doctor ID: </label>
+  <input type="text" id="doctorId" [(ngModel)]="doctorId" />
+  <button (click)="fetchDoctorSchedule()">Search</button>
+</div>
+<div *ngIf="doctorSchedule">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Doctor ID</th>
+        <th>Name</th>
+        <th>Weed Day</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Availability Mode</th>
+        <th>Clinic ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{doctorSchedule.doctorId}}</td>
+        <td>{{doctorSchedule.name}}</td>
+        <td>{{doctorSchedule.weekDay}}</td>
+        <td>{{doctorSchedule.startTime}}</td>
+        <td>{{doctorSchedule.endTime}}</td>
+        <td>{{doctorSchedule.availabilityMode}}</td>
+        <td>{{doctorSchedule.clinicId}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!doctorSchedule">
+  <p>Please enter doctorID to see schedules!</p>
+</div>

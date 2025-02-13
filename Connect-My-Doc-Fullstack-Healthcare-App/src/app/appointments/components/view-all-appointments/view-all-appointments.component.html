@@ -1,0 +1,95 @@
+<div class="content">
+  <div class="header">
+    <h2>Appointments</h2>
+    <button class="add-btn" (click)="scheduleAppointment()">
+      <i class="fa fa-plus"></i> Add Appointment
+    </button>
+  </div>
+
+  <div class="table-controls">
+    <label for="entries">Show</label>
+    <select id="entries" [(ngModel)]="entriesToShow">
+      <option *ngFor="let num of [10, 25, 50, 100]" [value]="num">
+        {{ num }}
+      </option>
+    </select>
+    entries
+  </div>
+
+  <div class="table-container">
+    <table class="appointment-table" border="1">
+      <thead>
+        <tr>
+          <th>Appointment ID</th>
+          <th>Patient Name</th>
+          <th>Doctor Name</th>
+          <th>Purpose of visit</th>
+          <th>Appointment Date</th>
+          <th>Appointment Time</th>
+          <th>Status</th>
+          <th class="text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td class="appointment-id">
+            <a (click)="viewAppointment(appointment.appointmentId)">{{
+              appointment.appointmentId
+            }}</a>
+          </td>
+          <td>{{ appointment.patient.patientName }}</td>
+          <td>{{ appointment.doctor.doctorName }}</td>
+          <td>{{ appointment.purposeOfVisit }}</td>
+          <td>{{ appointment.appointmentDate | date : "dd-MM-yyyy" }}</td>
+          <!-- <td>{{ appointment.appointmentDate }}</td> -->
+          <!-- <td>{{ formatDate(appointment.appointmentDate) }}</td> -->
+
+          <!-- | date : "dd MMM yyyy"    Appointment ID :APT-5270-2025   -->
+
+          <td>{{ appointment.appointmentTime }}</td> <!-- pipe: | slice : 0 : 5-->
+          <!-- <td>{{ appointment.appointmentTime }}</td> -->
+          <td>
+            <span
+              [ngClass]="{
+                'status-scheduled':
+                  appointment.appointmentStatus === 'SCHEDULED',
+                'status-cancelled':
+                  appointment.appointmentStatus === 'CANCELLED',
+                'status-completed':
+                  appointment.appointmentStatus === 'COMPLETED',
+              }"
+            >
+              {{ appointment.appointmentStatus }}
+            </span>
+          </td>
+          <td class="text-right">
+            <div class="dropdown">
+              <button class="action-btn">
+                <fa-icon [icon]="faEllipsis"></fa-icon>
+              </button>
+              <div class="dropdown-content">
+                <a (click)="editAppointment(appointment.appointmentId)">
+                  <fa-icon [icon]="faPencil"></fa-icon> Edit
+                </a>
+                <!-- <a
+                  [routerLink]="[
+                    '/edit-appointment',
+                    appointment.appointmentId
+                  ]"
+                  >✏ Edit</a
+                > -->
+
+                <a (click)="cancelAppointment(appointment.appointmentId)">
+                  <fa-icon [icon]="faTrash"></fa-icon> Cancel
+                </a>
+                <a (click)="viewAppointment(appointment.appointmentId)">
+                  <fa-icon [icon]="faEye"></fa-icon> View
+                </a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

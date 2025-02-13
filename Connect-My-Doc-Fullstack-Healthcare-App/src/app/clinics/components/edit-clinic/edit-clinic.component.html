@@ -1,0 +1,71 @@
+<div class="edit-clinic-container">
+    <h2>Edit Clinic</h2>
+
+   
+
+    <form [formGroup]="clinicForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Clinic Name:</label>
+        <input type="text" formControlName="name" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Phone Number:</label>
+        <input type="text" formControlName="phoneNumber" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" formControlName="email" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Is Service Active?</label>
+        <input type="checkbox" formControlName="isServiceActive" />
+      </div>
+  
+      <div class="form-group">
+        <label>Start Time:</label>
+        <input type="datetime-local" formControlName="startTime" required />
+      </div>
+  
+      <div class="form-group">
+        <label>End Time:</label>
+        <input type="datetime-local" formControlName="endTime" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Clinic Status:</label>
+        <input type="checkbox" formControlName="status" />
+      </div>
+  
+      <h3>Address</h3>
+      <div class="form-group">
+        <label>House Name:</label>
+        <input type="text" formControlName="address.housename" />
+      </div>
+  
+      <div class="form-group">
+        <label>City:</label>
+        <input type="text" formControlName="address.city" />
+      </div>
+  
+      <div class="form-group">
+        <label>State:</label>
+        <input type="text" formControlName="address.state" />
+      </div>
+  
+      <div class="form-group">
+        <label>Country:</label>
+        <input type="text" formControlName="address.country" />
+      </div>
+  
+      <div class="form-group">
+        <label>Zip Code:</label>
+        <input type="text" formControlName="address.zipCode" />
+      </div>
+  
+      <button type="submit" [disabled]="clinicForm.invalid">Update Clinic</button>
+    </form>
+  </div>
+  

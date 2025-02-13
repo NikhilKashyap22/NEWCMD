@@ -1,0 +1,26 @@
+<div class="edit-appointment-container">
+  <h2>Edit Appointment</h2>
+
+  <form [formGroup]="appointmentForm" (ngSubmit)="rescheduleAppointment()">
+    <label for="appointmentDate">Appointment Date:</label>
+    <input
+      type="date"
+      id="appointmentDate"
+      formControlName="appointmentDate"
+      required
+    />
+
+    <label for="appointmentTime">Appointment Time:</label>
+    <input
+      type="time"
+      id="appointmentTime"
+      formControlName="appointmentTime"
+      required
+    />
+
+    <button type="submit" [disabled]="appointmentForm.invalid">
+      Reschedule
+    </button>
+    <button type="button" (click)="cancel()">Cancel</button>
+  </form>
+</div>

@@ -1,0 +1,152 @@
+.content {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Ensure icons are visible */
+button i {
+  font-size: 16px; /* Adjust as necessary */
+  color: black; /* Ensure a visible color */
+}
+
+.add-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.add-btn i {
+  margin-right: 5px;
+}
+
+.table-controls {
+  margin-bottom: 10px;
+}
+
+#entries {
+  margin: 0 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.appointment-table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 5px;
+}
+
+.appointment-table th,
+.appointment-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.appointment-table th {
+  background: #007bff;
+  font-weight: bold;
+}
+
+.appointment-table tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.status-scheduled {
+  background-color: #a1e3f9;
+  color: #3674b5;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #dc3545;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.status-completed {
+  background-color: #28a745;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Style the button container */
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Style the icons inside the dropdown */
+.dropdown-content a {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.2s ease-in-out;
+}
+
+.dropdown-content a:hover {
+  background: #f1f1f1;
+}
+
+/* Style the fa-icons */
+fa-icon {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 120px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

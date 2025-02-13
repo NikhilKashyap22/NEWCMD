@@ -1,0 +1,58 @@
+<div class="page-wrapper" *ngIf="doctor">
+  <div class="content">
+      <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+              <h4 class="page-title">Edit Doctor</h4>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+              <form>
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="form-group">
+                              <label>First Name <span class="text-danger">*</span></label>
+                              <input class="form-control" type="text" [(ngModel)]="doctor.firstName" name="firstName">
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="form-group">
+                              <label>Last Name</label>
+                              <input class="form-control" type="text" [(ngModel)]="doctor.lastName" name="lastName">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="container">
+                      <div class="exp">
+                          <h6>Update Experience</h6>
+                          <label>Update YOE :</label>
+                          <input type="number" class="form-control" [(ngModel)]="newExperience.experienceInYears" name="experienceInYears">
+                          <label>Update Role:</label>
+                          <input type="text" class="form-control" [(ngModel)]="newExperience.role" name="role">
+                          <label>Work Status:</label>
+                          <input type="text" class="form-control" [(ngModel)]="newExperience.experienceType" name="experienceType">
+                          <label>Update Clinic Name:</label>
+                          <input type="text" class="form-control" [(ngModel)]="newExperience.clinicName" name="clinicName">
+                          <button class="btn btn-primary mt-4" (click)="updateExperience()">Update Experience</button>
+                      </div>
+                      <div class="add mt-2">
+                          <h6>Update Address</h6>
+                          <label>Street:</label>
+                          <input type="text" class="form-control" [(ngModel)]="newAddress.houseName" name="houseName">
+                          <label>City:</label>
+                          <input type="text" class="form-control" [(ngModel)]="newAddress.city" name="city">
+                          <label>State:</label>
+                          <input type="text" class="form-control" [(ngModel)]="newAddress.state" name="state">
+                          <label>Zip Code:</label>
+                          <input type="text" class="form-control" [(ngModel)]="newAddress.zipCode" name="zipCode">
+                          <button class="btn btn-primary mt-4" (click)="updateAddress()">Update Address</button>
+                      </div>
+                  </div>
+                  <div class="m-t-20 text-center">
+                      <button class="btn btn-primary submit-btn">Save</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
